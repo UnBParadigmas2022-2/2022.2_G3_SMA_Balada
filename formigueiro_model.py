@@ -1,4 +1,8 @@
+import turtle
 import mesa
+import random
+import time
+
 
 
 class FormigaAgent(mesa.Agent):
