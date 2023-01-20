@@ -3,7 +3,7 @@ import mesa
 import random
 import time
 
-
+RANGE = 5
 
 class FormigaAgent(mesa.Agent):
     """An agent with fixed initial wealth."""
@@ -29,7 +29,6 @@ class FormigaAgent(mesa.Agent):
         print("formiga: " + str(self.unique_id) + " andou para :" + str(new_x) +"|" + str(new_y))
 
 
-
 class FormigueiroModel(mesa.Model):
     """A model with some number of agents."""
 
@@ -44,3 +43,9 @@ class FormigueiroModel(mesa.Model):
     def step(self):
         """Advance the model by one step."""
         self.schedule.step()
+
+novo_formigueiro = FormigueiroModel(5)
+
+while True:
+    novo_formigueiro.step()
+    time.sleep(0.1)
