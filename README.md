@@ -1,31 +1,19 @@
-# RepositorioTemplate
-Esse repositório é para ser utilizado pelos grupos como um template inicial, da home page do Projeto.
-As seções do Template NÃO DEVEM SER OMITIDAS, sendo TODAS RELEVANTES.
-
-**!! *Atenção: Renomeie o seu repositório para (Ano.Semestre)_(Grupo)_(Paradigma)_(NomeDoProjeto)*. !!** 
-
-Paradigmas:
- - Funcional
- - Logico
- - SMA
-
-**!! *Não coloque os nomes dos alunos no título do repositório*. !!**
-
-**!! *Exemplo de título correto: 2022.2_G1_Logico_ProjetoRoteirosAereos*. !!**
- 
- (Apague esses comentários)
-
-# NomeDoProjeto
-
-**Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T01 <br>
-**Nro do Grupo (de acordo com a Planilha de Divisão dos Grupos)**: XX<br>
-**Paradigma**: XXXXXXXXXX<br>
+**Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T02 <br>
+**Nro do Grupo**: 03<br>
+**Paradigma**: Sistema Multiagentes<br>
 
 ## Alunos
-|Matrícula | Aluno |
-| -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+
+|Matrícula  |  Aluno |
+| --------- | ------------------------------------------------------ |
+| 170161897 | [Eduarda Servidio Claudino](https://github.com/ServidioEC)| 
+| 190046091 | [Gustave Augusto Persijn](https://github.com/gpersijn) |
+| 170034992 | [Gustavo Afonso Pires](https://github.com/GustavoAPS)  |
+| 180113992 | [Lorrany Oliveira](https://github.com/Lorranyoliveira) |
+| 190032863 | [Lorrayne Alves](https://github.com/LorrayneCardozo)   |
+| 190036435 | [Pedro Henrique Carvalho](https://github.com/peh099)   |
+| 180130889 | [Sávio Cunha de Carvalho](https://github.com/savioc2)  |
+| 170164357 | [Ugor Marcilio Brandão](https://github.com/ubrando)    |
 
 ## Sobre 
 Descreva o seu projeto em linhas gerais. 
@@ -36,8 +24,8 @@ Capriche nessa seção, pois ela é a primeira a ser lida pelos interessados no 
 Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
 
 ## Instalação 
-**Linguagens**: xxxxxx<br>
-**Tecnologias**: xxxxxx<br>
+**Linguagens**: Python<br>
+**Tecnologias**: mesa<br>
 Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
 Insira um manual ou um script para auxiliar ainda mais.
 Gifs animados e outras ilustrações são bem-vindos!
@@ -58,10 +46,16 @@ OBS: TODOS DEVEM PARTICIPAR, CONFERINDO PONTOS DE VISTA.
 TEMPO: +/- 15min
 
 ## Participações
-Apresente, brevemente, como cada membro do grupo contribuiu para o projeto.
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) |
 | -- | -- | -- |
-| Fulano  |  Programação dos Fatos da Base de Conhecimento Lógica | Boa |
+| Eduarda Servídio  |  |  |
+| Gustave Augusto Persijn  | |  |
+| Gustavo Afonso Pires  || |
+| Lorrany Oliveira  |  |  |
+| Lorrayne Alves  |  | |
+| Pedro Henrique Carvalho  |  ||
+| Sávio Cunha de Carvalho  | | |
+| Ugor Marcilio Brandão  | |  |
 
 ## Outros 
 Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não esqueça, entretanto, de informar sobre:
