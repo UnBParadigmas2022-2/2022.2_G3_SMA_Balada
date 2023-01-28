@@ -2,28 +2,30 @@ import turtle
 import mesa 
 import random
 import time
-
+import tkinter
+import tkinter.messagebox
 
 # MODEL.py 
 
-
+ID = 4
 RANGE = 5
+turtle.register_shape("catiorinho.gif")
+turtle.register_shape("osso.gif")
+turtle.register_shape('chuva.gif')
 
-
-
-## FORMIGAS
 class FormigaAgent(mesa.Agent):
     """An agent with fixed initial wealth."""
 
     def __init__(self, unique_id, model,x,y):
         self.comida = 1
         self.t = turtle.Turtle()
+        self.t.hideturtle()
         self.t.penup()
-        self.t.shape("turtle")
-        self.t.color("green")
+        self.t.shape("catiorinho.gif")
         self.current_x = x
         self.current_y = y
         self.t.setposition(self.current_x,self.current_y)
+        self.t.showturtle()
         super().__init__(unique_id, model)
 
     def step(self):
@@ -62,11 +64,13 @@ class FormigueiroAgent(mesa.Agent):
         self.capacidade_de_comida = 0
         self.t = turtle.Turtle()
         self.t.penup()
-        self.t.shape("circle")
-        self.t.color("brown")
+        self.t.hideturtle()
+        self.t.shapesize(0.1,0.1,0.1)
+        self.t.shape("osso.gif")
         self.fix_position_x = random.randint(-300, 300)
         self.fix_position_y = random.randint(-300, 300)
         self.t.setposition(self.fix_position_x,self.fix_position_y)
+        self.t.showturtle()
         self.formigas = FormigaModel(5,self.fix_position_x, self.fix_position_y)
         self.numero_de_formigas = 0
         self.ids = 6
@@ -94,19 +98,23 @@ class FormigueiroModel(mesa.Model):
         self.num_agents = N
 
         self.schedule = mesa.time.RandomActivation(self)
-
+        self.id = 0
         for i in range(self.num_agents):
             a = FormigueiroAgent(i, self)
             self.schedule.add(a)
+            self.id +=1
 
     def step(self):
-        """Advance the model by one step."""
         self.schedule.step()
                     
+    def addFormigueiro(self):
+        a = FormigueiroAgent(self.id, self)
+        self.schedule.add(a)
+        self.id += 1
 
-# RUN.py
-novo_formigueiro = FormigueiroModel(4)
-
-while True:
-    novo_formigueiro.step()
-    time.sleep(0.1)
+win = turtle.Screen()
+win.screensize(1500,2000)
+turtle.bgpic('gif.gif')
+formigues = FormigueiroModel(4)
+while(1):
+    formigues.step()
