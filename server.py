@@ -4,14 +4,16 @@ import random
 import time
 import tkinter
 import tkinter.messagebox
+from utils.calcula_disntacia import distance
 
 # MODEL.py
 
 ID = 4
 RANGE = 5
-TAMANHO_BOATE = 200
+TAMANHO_BOATE = 500
 COORD_SAIDA = (160, 180)
 COORD_BEBIDA = (150, -180)
+COORD_INICIAL = (0, 0)
 
 window = tkinter.Tk()
 
@@ -69,8 +71,9 @@ class Pessoa(mesa.Agent):
         super().__init__(unique_id, model)
         self.x = x
         self.y = y
-        self.energia = 50
+        self.energia = 200
         self.embriaguez = 0
+        self.bebida = False
         self.shape = turtle.RawTurtle(canvas)
         self.shape.hideturtle()
         self.shape.shape("circle")
@@ -81,7 +84,9 @@ class Pessoa(mesa.Agent):
 
     def move(self):
         if(self.energia == 0):
-            self.gotocoordinate()
+            self.gotosaida()
+        elif(distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False):
+            self.gotobebida()
         else:
             if self.shape.xcor() >= 180:
                 self.x -= 5
@@ -102,7 +107,23 @@ class Pessoa(mesa.Agent):
 
             self.energia -= 1
 
-    def gotocoordinate(self):
+    def gotobebida(self):
+        x, y = self.shape.position()
+        xs, ys = COORD_BEBIDA
+
+        if(x < xs):
+            self.x += 5
+        if(y > ys):
+            self.y -= 5
+
+        if(x >= 150 and y <= -180):
+            self.energia += 20
+            self.bebida = True
+            self.shape.color('green')
+
+        self.shape.goto(self.x, self.y)
+
+    def gotosaida(self):
         x, y = self.shape.position()
         xs, ys = COORD_SAIDA
 
@@ -114,6 +135,7 @@ class Pessoa(mesa.Agent):
         if(x >= 160 and y >= 180):
             self.shape.hideturtle()
 
+        self.shape.color('purple')
         self.shape.goto(self.x, self.y)
 
     def mostra_status(self):
