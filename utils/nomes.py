@@ -1,13 +1,23 @@
-nomes_masculinos = [
+nomes = [
     "Alessandro Paz Justino",
+    "Daiana Salles Cavalcanti",
+    "Larissa Almeida Miranda",
     "Antonio Barros Gonçalves",
     "Giovane Campos Caetano",
+    "Estela Dutra Brito",
+    "Zilda Alencar Sato",
     "Iago Antunes Câmara",
     "Manuel Espíndola Brito",
     "Osvaldo Vale Pinheiro",
+    "Amanda Delchiaro dos Santos",
+    "Érica Sato Fontes",
+    "Esther Couto da Fonseca",
     "Leonardo Barbosa Quadros",
     "Vítor Nazário Yoshimura",
     "Fábio Braga Ramos",
+    "Milena Lacerda da Conceição",
+    "Natália Yoshimura Lópes",
+    "Rosana Pires Luz",
     "Thiago Reis de Oliveira",
     "Tadeu Guerra Bosco",
     "Erasmo Bitencourt de Almeida",
@@ -28,19 +38,7 @@ nomes_masculinos = [
     "Bernardo Hamada Ximenes",
     "Arnaldo Justino de Castro",
     "Breno Delgado de Albuquerque",
-    "Sebastião Leite Antunes"]
-
-nomes_femininos = [
-    "Daiana Salles Cavalcanti",
-    "Larissa Almeida Miranda",
-    "Estela Dutra Brito",
-    "Zilda Alencar Sato",
-    "Amanda Delchiaro dos Santos",
-    "Érica Sato Fontes",
-    "Esther Couto da Fonseca",
-    "Milena Lacerda da Conceição",
-    "Natália Yoshimura Lópes",
-    "Rosana Pires Luz",
+    "Sebastião Leite Antunes",
     "Daiana Salles Cavalcanti",
     "Larissa Almeida Miranda",
     "Estela Dutra Brito",
@@ -61,4 +59,4 @@ nomes_femininos = [
     "Olga Barreto Pimentel",
     "Darcy Guimarães Salgado",
     "Sônia Delgado do Vale",
-    ]
+]
