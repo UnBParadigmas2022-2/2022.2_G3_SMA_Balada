@@ -67,6 +67,8 @@ class Pessoa(mesa.Agent):
         super().__init__(unique_id, model)
         self.x = x
         self.y = y
+        self.energia = 100
+        self.embriaguez = 0
         self.shape = turtle.RawTurtle(canvas)
         self.shape.hideturtle()
         self.shape.shape("circle")
@@ -84,18 +86,35 @@ class Pessoa(mesa.Agent):
         self.y += random.randint(-10, 10)
         self.shape.goto(self.x, self.y)
 
+    def mostra_status(self):
+        print(self.unique_id)
+        print(self.energia)
+
+
 class BaladaModel(mesa.Model):
     def __init__(self, N):
         self.num_pessoas = N
         self.schedule = mesa.time.SimultaneousActivation(self)
+        self.pessoas = []
+
         for i in range(self.num_pessoas):
             p = Pessoa(i, self, -170, 180)
+            self.pessoas.append(p)
             self.schedule.add(p)
 
     def step(self):
         for pessoa in self.schedule.agents:
             pessoa.move()
 
+    def numero_pessoas(self):
+        print(self.schedule.get_agent_count())
+
+    def remover_pessoa(self):
+        for i in self.pessoas:
+            i.mostra_status()
+
+
+FLAG = True
 
 ## Test Tkinker
 global balada
@@ -103,20 +122,19 @@ balada = BaladaModel(10)
 
 
 def Play():
-    while True:
+    while FLAG:
         balada.step()
 
 
 def funcao_placeholder():
-    print("botão pressionado")
-    pass
+    balada.remover_pessoa()
 
 
 Play_Button = tkinter.Button(master=window, text="Iniciar balada", command=Play)
 Play_Button.config(bg="cyan", fg="black")
 Play_Button.grid(padx=2, pady=2, row=0, column=11, sticky='nsew')
 
-Board_Button = tkinter.Button(master=window, text="Adicionar Formigueiro", command=funcao_placeholder)
+Board_Button = tkinter.Button(master=window, text="Check todo mundo", command=funcao_placeholder)
 Board_Button.config(bg="cyan", fg="black")
 Board_Button.grid(padx=2, pady=2, row=1, column=11, sticky='nsew')
 
