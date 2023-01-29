@@ -9,6 +9,54 @@ import tkinter.messagebox
 
 ID = 4
 RANGE = 5
+TAMANHO_BOATE = 200
+
+
+# DESENHA A BOATE
+boate_drawing = turtle.Turtle()
+boate_drawing.penup()
+boate_drawing.goto(TAMANHO_BOATE * -1, TAMANHO_BOATE * -1)
+boate_drawing.pendown()
+boate_drawing.hideturtle()
+
+for _ in range(4):
+    boate_drawing.forward(TAMANHO_BOATE * 2)
+    boate_drawing.left(90)
+
+# desenha a porta de entrada
+entrada_drawing = turtle.Turtle()
+entrada_drawing.penup()
+entrada_drawing.goto((TAMANHO_BOATE * -1) + 80, TAMANHO_BOATE)
+entrada_drawing.pendown()
+entrada_drawing.right(90)
+entrada_drawing.forward(40)
+entrada_drawing.right(90)
+entrada_drawing.forward(80)
+entrada_drawing.hideturtle()
+
+# desenha a porta de saida
+saida_drawing = turtle.Turtle()
+saida_drawing.penup()
+saida_drawing.goto( TAMANHO_BOATE - 80, TAMANHO_BOATE)
+saida_drawing.pendown()
+saida_drawing.right(90)
+saida_drawing.forward(40)
+saida_drawing.left(90)
+saida_drawing.forward(80)
+saida_drawing.hideturtle()
+
+#desenha o bar
+bar_drawing = turtle.Turtle()
+bar_drawing.penup()
+bar_drawing.goto(TAMANHO_BOATE - 160, TAMANHO_BOATE * -1)
+bar_drawing.pendown()
+bar_drawing.left(90)
+bar_drawing.forward(40)
+bar_drawing.right(90)
+bar_drawing.forward(160)
+bar_drawing.hideturtle()
+
+
 
 class FormigaAgent(mesa.Agent):
     """An agent with fixed initial wealth."""
@@ -111,6 +159,9 @@ class FormigueiroModel(mesa.Model):
         self.schedule.add(a)
         self.id += 1
 
+
+
+
 ## Test Tkinker
 window = tkinter.Tk()
 
@@ -118,6 +169,8 @@ canvas = tkinter.Canvas(master = window, width = 800, height = 800)
 canvas.grid(padx=2, pady=2, row=0, column=0, rowspan=10, columnspan=10)
 draw = turtle.RawTurtle(canvas)
 formigueiros = FormigueiroModel(0)
+
+
 def Play():
     global fomigueiros
     fomigueiros = FormigueiroModel(4)
