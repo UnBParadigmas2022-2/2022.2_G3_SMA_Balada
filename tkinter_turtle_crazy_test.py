@@ -50,8 +50,6 @@ if __name__ == "__main__":
         root.after(1000, update, s)  # run itself again after 1000 ms
 
 
-
-
     # run first time
     update(segundos)
 
