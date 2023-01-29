@@ -10,6 +10,8 @@ import tkinter.messagebox
 ID = 4
 RANGE = 5
 TAMANHO_BOATE = 200
+COORD_SAIDA = (160, 180)
+COORD_BEBIDA = (150, -180)
 
 window = tkinter.Tk()
 
@@ -67,7 +69,7 @@ class Pessoa(mesa.Agent):
         super().__init__(unique_id, model)
         self.x = x
         self.y = y
-        self.energia = 100
+        self.energia = 50
         self.embriaguez = 0
         self.shape = turtle.RawTurtle(canvas)
         self.shape.hideturtle()
@@ -78,25 +80,40 @@ class Pessoa(mesa.Agent):
         self.shape.showturtle()
 
     def move(self):
-        # Linha direita
-        if self.shape.xcor() >= 180:
-            self.x -= 5
-        # Linha cima
-        elif self.shape.ycor() >= 180:
-            self.y -= 5
-        # Linha esquerda
-        elif self.shape.xcor() <= -180:
+        if(self.energia == 0):
+            self.gotocoordinate()
+        else:
+            if self.shape.xcor() >= 180:
+                self.x -= 5
+            elif self.shape.ycor() >= 180:
+                self.y -= 5
+            elif self.shape.xcor() <= -180:
+                self.x += 5
+            elif self.shape.ycor() <= -180:
+                self.y += 5
+
+            elif(self.shape.distance(self.shape) > 100):
+                self.x += random.randint(5, 10)
+                self.y += random.randint(-20, -10)
+            else:
+                self.x += random.randint(-10, 10)
+                self.y += random.randint(-10, 10)
+            self.shape.goto(self.x, self.y)
+
+            self.energia -= 1
+
+    def gotocoordinate(self):
+        x, y = self.shape.position()
+        xs, ys = COORD_SAIDA
+
+        if(x < xs):
             self.x += 5
-        # Linha baixo
-        elif self.shape.ycor() <= -180:
+        if(y < ys):
             self.y += 5
 
-        elif(self.shape.distance(self.shape) > 100):
-            self.x += random.randint(5, 10)
-            self.y += random.randint(-20, -10)
-        else:
-            self.x += random.randint(-10, 10)
-            self.y += random.randint(-10, 10)
+        if(x >= 160 and y >= 180):
+            self.shape.hideturtle()
+
         self.shape.goto(self.x, self.y)
 
     def mostra_status(self):
@@ -118,6 +135,8 @@ class BaladaModel(mesa.Model):
     def step(self):
         for pessoa in self.schedule.agents:
             pessoa.move()
+            if(pessoa.shape.position == COORD_SAIDA):
+                self.schedule.remove(pessoa)
 
     def numero_pessoas(self):
         print(self.schedule.get_agent_count())
