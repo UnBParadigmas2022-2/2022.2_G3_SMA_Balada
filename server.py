@@ -120,6 +120,7 @@ class BaladaModel(mesa.Model):
             p = Pessoa(i, self, -170, 180)
             self.pessoas.append(p)
             self.schedule.add(p)
+            escreverLog(f'{p.nome} entrou na balada\n')
 
     def step(self):
         for pessoa in self.schedule.agents:
@@ -133,6 +134,11 @@ class BaladaModel(mesa.Model):
     def remover_pessoa(self):
         for i in self.pessoas:
             i.mostra_status()
+
+def escreverLog(mensagem):
+    log = open("utils/log.txt", "a")
+    log.write(f"{mensagem}\n")
+    log.close()
 
 
 FLAG = True
