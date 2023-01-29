@@ -1,11 +1,11 @@
 import turtle
-import mesa 
+import mesa
 import random
 import time
 import tkinter
 import tkinter.messagebox
 
-# MODEL.py 
+# MODEL.py
 
 ID = 4
 RANGE = 5
@@ -42,7 +42,7 @@ entrada_drawing.hideturtle()
 # desenha a porta de saida
 saida_drawing = turtle.RawTurtle(canvas)
 saida_drawing.penup()
-saida_drawing.goto( TAMANHO_BOATE - 80, TAMANHO_BOATE)
+saida_drawing.goto(TAMANHO_BOATE - 80, TAMANHO_BOATE)
 saida_drawing.pendown()
 saida_drawing.right(90)
 saida_drawing.forward(40)
@@ -50,7 +50,7 @@ saida_drawing.left(90)
 saida_drawing.forward(80)
 saida_drawing.hideturtle()
 
-#desenha o bar
+# desenha o bar
 bar_drawing = turtle.RawTurtle(canvas)
 bar_drawing.penup()
 bar_drawing.goto(TAMANHO_BOATE - 160, TAMANHO_BOATE * -1)
@@ -78,12 +78,25 @@ class Pessoa(mesa.Agent):
         self.shape.showturtle()
 
     def move(self):
+        # Linha direita
+        if self.shape.xcor() >= 180:
+            self.x -= 5
+        # Linha cima
+        elif self.shape.ycor() >= 180:
+            self.y -= 5
+        # Linha esquerda
+        elif self.shape.xcor() <= -180:
+            self.x += 5
+        # Linha baixo
+        elif self.shape.ycor() <= -180:
+            self.y += 5
 
-        if self.shape.distance(self.shape) > 100:
-            self.x += random.randint(5,10)
-            self.y += random.randint(-20,-10)
-        self.x += random.randint(-10, 10)
-        self.y += random.randint(-10, 10)
+        elif(self.shape.distance(self.shape) > 100):
+            self.x += random.randint(5, 10)
+            self.y += random.randint(-20, -10)
+        else:
+            self.x += random.randint(-10, 10)
+            self.y += random.randint(-10, 10)
         self.shape.goto(self.x, self.y)
 
     def mostra_status(self):
@@ -116,7 +129,7 @@ class BaladaModel(mesa.Model):
 
 FLAG = True
 
-## Test Tkinker
+# Test Tkinker
 global balada
 balada = BaladaModel(10)
 
@@ -130,11 +143,13 @@ def funcao_placeholder():
     balada.remover_pessoa()
 
 
-Play_Button = tkinter.Button(master=window, text="Iniciar balada", command=Play)
+Play_Button = tkinter.Button(
+    master=window, text="Iniciar balada", command=Play)
 Play_Button.config(bg="cyan", fg="black")
 Play_Button.grid(padx=2, pady=2, row=0, column=11, sticky='nsew')
 
-Board_Button = tkinter.Button(master=window, text="Check todo mundo", command=funcao_placeholder)
+Board_Button = tkinter.Button(
+    master=window, text="Check todo mundo", command=funcao_placeholder)
 Board_Button.config(bg="cyan", fg="black")
 Board_Button.grid(padx=2, pady=2, row=1, column=11, sticky='nsew')
 
