@@ -13,7 +13,7 @@ TAMANHO_BOATE = 200
 
 window = tkinter.Tk()
 
-canvas = tkinter.Canvas(master = window, width = 800, height = 800)
+canvas = tkinter.Canvas(master=window, width=800, height=800)
 canvas.grid(padx=2, pady=2, row=0, column=0, rowspan=10, columnspan=10)
 
 
@@ -89,7 +89,7 @@ class BaladaModel(mesa.Model):
         self.num_pessoas = N
         self.schedule = mesa.time.SimultaneousActivation(self)
         for i in range(self.num_pessoas):
-            p = Pessoa(i, self, -300, 300)
+            p = Pessoa(i, self, -170, 180)
             self.schedule.add(p)
 
     def step(self):
@@ -97,25 +97,27 @@ class BaladaModel(mesa.Model):
             pessoa.move()
 
 
-
-
-
 ## Test Tkinker
 global balada
 balada = BaladaModel(10)
+
+
 def Play():
     while True:
         balada.step()
 
-def Add_formigueiro():
+
+def funcao_placeholder():
+    print("botão pressionado")
     pass
 
-Play_Button = tkinter.Button(master = window, text ="Play!", command = Play)
-Play_Button.config(bg="cyan",fg="black")
+
+Play_Button = tkinter.Button(master=window, text="Iniciar balada", command=Play)
+Play_Button.config(bg="cyan", fg="black")
 Play_Button.grid(padx=2, pady=2, row=0, column=11, sticky='nsew')
 
-Board_Button = tkinter.Button(master = window, text ="Adicionar Formigueiro", command = Add_formigueiro)
-Board_Button.config(bg="cyan",fg="black")
+Board_Button = tkinter.Button(master=window, text="Adicionar Formigueiro", command=funcao_placeholder)
+Board_Button.config(bg="cyan", fg="black")
 Board_Button.grid(padx=2, pady=2, row=1, column=11, sticky='nsew')
 
 window.mainloop()
