@@ -4,7 +4,9 @@ import random
 import time
 import tkinter
 import tkinter.messagebox
-from utils.calcula_disntacia import distance
+
+from utils.nomes import nomes
+from utils.desenha_mapa import desenha_entrada, desenha_saida
 
 # MODEL.py
 
@@ -13,7 +15,6 @@ RANGE = 5
 TAMANHO_BOATE = 200
 COORD_SAIDA = (160, 180)
 COORD_BEBIDA = (150, -180)
-COORD_INICIAL = (0, 0)
 
 window = tkinter.Tk()
 
@@ -33,26 +34,10 @@ for _ in range(4):
     boate_drawing.left(90)
 
 # desenha a porta de entrada
-entrada_drawing = turtle.RawTurtle(canvas)
-entrada_drawing.penup()
-entrada_drawing.goto((TAMANHO_BOATE * -1) + 80, TAMANHO_BOATE)
-entrada_drawing.pendown()
-entrada_drawing.right(90)
-entrada_drawing.forward(40)
-entrada_drawing.right(90)
-entrada_drawing.forward(80)
-entrada_drawing.hideturtle()
+desenha_entrada(TAMANHO_BOATE, canvas)
 
 # desenha a porta de saida
-saida_drawing = turtle.RawTurtle(canvas)
-saida_drawing.penup()
-saida_drawing.goto(TAMANHO_BOATE - 80, TAMANHO_BOATE)
-saida_drawing.pendown()
-saida_drawing.right(90)
-saida_drawing.forward(40)
-saida_drawing.left(90)
-saida_drawing.forward(80)
-saida_drawing.hideturtle()
+desenha_saida(TAMANHO_BOATE, canvas)
 
 # desenha o bar
 bar_drawing = turtle.RawTurtle(canvas)
@@ -71,9 +56,9 @@ class Pessoa(mesa.Agent):
         super().__init__(unique_id, model)
         self.x = x
         self.y = y
-        self.energia = random.randint(200, 400)
+        self.nome = nomes[unique_id]
+        self.energia = 50
         self.embriaguez = 0
-        self.bebida = False
         self.shape = turtle.RawTurtle(canvas)
         self.shape.hideturtle()
         self.shape.shape("circle")
@@ -84,9 +69,7 @@ class Pessoa(mesa.Agent):
 
     def move(self):
         if(self.energia == 0):
-            self.gotosaida()
-        elif(distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False):
-            self.gotobebida()
+            self.gotocoordinate()
         else:
             if self.shape.xcor() >= 180:
                 self.x -= 5
@@ -107,23 +90,7 @@ class Pessoa(mesa.Agent):
 
             self.energia -= 1
 
-    def gotobebida(self):
-        x, y = self.shape.position()
-        xs, ys = COORD_BEBIDA
-
-        if(x < xs):
-            self.x += 5
-        if(y > ys):
-            self.y -= 5
-
-        if(x >= 150 and y <= -180):
-            self.energia += 20
-            self.bebida = True
-            self.shape.color('green')
-
-        self.shape.goto(self.x, self.y)
-
-    def gotosaida(self):
+    def gotocoordinate(self):
         x, y = self.shape.position()
         xs, ys = COORD_SAIDA
 
@@ -135,12 +102,12 @@ class Pessoa(mesa.Agent):
         if(x >= 160 and y >= 180):
             self.shape.hideturtle()
 
-        self.shape.color('purple')
         self.shape.goto(self.x, self.y)
 
     def mostra_status(self):
         print(self.unique_id)
         print(self.energia)
+        print(self.nome)
 
 
 class BaladaModel(mesa.Model):
