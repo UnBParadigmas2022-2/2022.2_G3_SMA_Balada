@@ -4,7 +4,8 @@ import random
 import time
 import tkinter
 import tkinter.messagebox
-from utils.calcula_disntacia import distance
+
+from utils.nomes import nomes
 
 # MODEL.py
 
@@ -13,7 +14,6 @@ RANGE = 5
 TAMANHO_BOATE = 200
 COORD_SAIDA = (160, 180)
 COORD_BEBIDA = (150, -180)
-COORD_INICIAL = (0, 0)
 
 window = tkinter.Tk()
 
@@ -71,9 +71,9 @@ class Pessoa(mesa.Agent):
         super().__init__(unique_id, model)
         self.x = x
         self.y = y
-        self.energia = random.randint(200, 400)
+        self.nome = nomes[unique_id]
+        self.energia = 50
         self.embriaguez = 0
-        self.bebida = False
         self.shape = turtle.RawTurtle(canvas)
         self.shape.hideturtle()
         self.shape.shape("circle")
@@ -84,9 +84,7 @@ class Pessoa(mesa.Agent):
 
     def move(self):
         if(self.energia == 0):
-            self.gotosaida()
-        elif(distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False):
-            self.gotobebida()
+            self.gotocoordinate()
         else:
             if self.shape.xcor() >= 180:
                 self.x -= 5
@@ -107,23 +105,7 @@ class Pessoa(mesa.Agent):
 
             self.energia -= 1
 
-    def gotobebida(self):
-        x, y = self.shape.position()
-        xs, ys = COORD_BEBIDA
-
-        if(x < xs):
-            self.x += 5
-        if(y > ys):
-            self.y -= 5
-
-        if(x >= 150 and y <= -180):
-            self.energia += 20
-            self.bebida = True
-            self.shape.color('green')
-
-        self.shape.goto(self.x, self.y)
-
-    def gotosaida(self):
+    def gotocoordinate(self):
         x, y = self.shape.position()
         xs, ys = COORD_SAIDA
 
@@ -135,12 +117,12 @@ class Pessoa(mesa.Agent):
         if(x >= 160 and y >= 180):
             self.shape.hideturtle()
 
-        self.shape.color('purple')
         self.shape.goto(self.x, self.y)
 
     def mostra_status(self):
         print(self.unique_id)
         print(self.energia)
+        print(self.nome)
 
 
 class BaladaModel(mesa.Model):
