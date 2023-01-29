@@ -10,7 +10,7 @@ from utils.calcula_disntacia import distance
 
 ID = 4
 RANGE = 5
-TAMANHO_BOATE = 500
+TAMANHO_BOATE = 200
 COORD_SAIDA = (160, 180)
 COORD_BEBIDA = (150, -180)
 COORD_INICIAL = (0, 0)
@@ -71,7 +71,7 @@ class Pessoa(mesa.Agent):
         super().__init__(unique_id, model)
         self.x = x
         self.y = y
-        self.energia = 200
+        self.energia = random.randint(200, 400)
         self.embriaguez = 0
         self.bebida = False
         self.shape = turtle.RawTurtle(canvas)
