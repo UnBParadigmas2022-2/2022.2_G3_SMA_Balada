@@ -6,6 +6,7 @@ import tkinter
 import tkinter.messagebox
 
 from utils.nomes import nomes
+from utils.desenha_mapa import desenha_entrada, desenha_saida
 
 # MODEL.py
 
@@ -33,26 +34,10 @@ for _ in range(4):
     boate_drawing.left(90)
 
 # desenha a porta de entrada
-entrada_drawing = turtle.RawTurtle(canvas)
-entrada_drawing.penup()
-entrada_drawing.goto((TAMANHO_BOATE * -1) + 80, TAMANHO_BOATE)
-entrada_drawing.pendown()
-entrada_drawing.right(90)
-entrada_drawing.forward(40)
-entrada_drawing.right(90)
-entrada_drawing.forward(80)
-entrada_drawing.hideturtle()
+desenha_entrada(TAMANHO_BOATE, canvas)
 
 # desenha a porta de saida
-saida_drawing = turtle.RawTurtle(canvas)
-saida_drawing.penup()
-saida_drawing.goto(TAMANHO_BOATE - 80, TAMANHO_BOATE)
-saida_drawing.pendown()
-saida_drawing.right(90)
-saida_drawing.forward(40)
-saida_drawing.left(90)
-saida_drawing.forward(80)
-saida_drawing.hideturtle()
+desenha_saida(TAMANHO_BOATE, canvas)
 
 # desenha o bar
 bar_drawing = turtle.RawTurtle(canvas)
