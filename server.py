@@ -6,7 +6,7 @@ import tkinter
 import tkinter.messagebox
 
 from utils.nomes import nomes
-from utils.desenha_mapa import desenha_entrada, desenha_saida
+from utils.desenha_mapa import desenha_entrada, desenha_saida, desenha_bar
 
 # MODEL.py
 
@@ -40,15 +40,7 @@ desenha_entrada(TAMANHO_BOATE, canvas)
 desenha_saida(TAMANHO_BOATE, canvas)
 
 # desenha o bar
-bar_drawing = turtle.RawTurtle(canvas)
-bar_drawing.penup()
-bar_drawing.goto(TAMANHO_BOATE - 160, TAMANHO_BOATE * -1)
-bar_drawing.pendown()
-bar_drawing.left(90)
-bar_drawing.forward(40)
-bar_drawing.right(90)
-bar_drawing.forward(160)
-bar_drawing.hideturtle()
+desenha_bar(TAMANHO_BOATE, canvas)
 
 
 class Pessoa(mesa.Agent):
