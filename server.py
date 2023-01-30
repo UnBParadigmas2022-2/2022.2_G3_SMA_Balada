@@ -1,15 +1,11 @@
 import turtle
 import mesa
 import random
-import time
-import tkinter
 import tkinter.messagebox
+
 from utils.calcula_disntacia import distance
-
 from utils.nomes import nomes
-from utils.desenha_mapa import desenha_entrada, desenha_saida, desenha_bar
 
-# MODEL.py
 
 ID = 4
 RANGE = 5
@@ -18,9 +14,9 @@ COORD_SAIDA = (160, 180)
 COORD_BEBIDA = (150, -180)
 COOR_CENTER = (0, 0)
 
-window = tkinter.Tk()
 
-canvas = tkinter.Canvas(master=window, width=800, height=800)
+window = tkinter.Tk()
+canvas = tkinter.Canvas(master=window, width=400, height=400)
 canvas.grid(padx=2, pady=2, row=0, column=0, rowspan=10, columnspan=10)
 screen = turtle.TurtleScreen(canvas)
 screen.register_shape('gifs/boneco_normal.gif')
@@ -29,26 +25,6 @@ screen.register_shape('gifs/boneco_cansado.gif')
 screen.register_shape('gifs/boneco_curtindo.gif')
 screen.register_shape('gifs/boneco_curtindo.gif')
 screen.bgpic('gifs/mapa.gif')
-
-# DESENHA A BOATE
-boate_drawing = turtle.RawTurtle(screen)
-boate_drawing.penup()
-boate_drawing.goto(TAMANHO_BOATE * -1, TAMANHO_BOATE * -1)
-boate_drawing.pendown()
-boate_drawing.hideturtle()
-
-for _ in range(4):
-    boate_drawing.forward(TAMANHO_BOATE * 2)
-    boate_drawing.left(90)
-
-# desenha a porta de entrada
-desenha_entrada(TAMANHO_BOATE, screen)
-
-# desenha a porta de saida
-desenha_saida(TAMANHO_BOATE, screen)
-
-# desenha o bar
-desenha_bar(TAMANHO_BOATE, screen)
 
 
 class Pessoa(mesa.Agent):
