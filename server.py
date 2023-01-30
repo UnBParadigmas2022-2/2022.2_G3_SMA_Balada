@@ -65,7 +65,7 @@ class Pessoa(mesa.Agent):
     def move(self):
         if(self.energia == 0):
             self.gotosaida()
-        elif(turtle.distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False):    self.gotobebida()
+        elif(distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False):    self.gotobebida()
         else:
             if self.shape.xcor() >= 180:
                 self.x -= 5
