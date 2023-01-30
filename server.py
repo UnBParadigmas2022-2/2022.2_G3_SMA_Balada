@@ -108,18 +108,18 @@ class Pessoa(mesa.Agent):
             self.vontade = random.randint(1, 50)
 
             self.energia -= 1
-            print(self.energia)
+
 
     def backtocenter(self):
         x, y = self.shape.position()
         xs, ys = COOR_CENTER
 
-        if(x > xs):
+        if x > xs:
             self.x -= 5
-        if(y < ys):
+        if y < ys:
             self.y += 5
 
-        if(x <= 0 and y >= 0):
+        if x <= 0 and y >= 0:
             self.centro = 0
 
         self.shape.goto(self.x, self.y)
@@ -128,12 +128,12 @@ class Pessoa(mesa.Agent):
         x, y = self.shape.position()
         xs, ys = COOR_CENTER
 
-        if(x < xs):
+        if x < xs:
             self.x += 5
-        if(y > ys):
+        if y > ys:
             self.y -= 5
 
-        if(x >= 0 and y <= 0):
+        if x >= 0 and y <= 0:
             self.shape.shape('gifs/boneco_curtindo.gif')
             self.centro = 0
 
@@ -143,9 +143,9 @@ class Pessoa(mesa.Agent):
         x, y = self.shape.position()
         xs, ys = COORD_BEBIDA
 
-        if(x < xs):
+        if x < xs:
             self.x += 5
-        if(y > ys):
+        if y > ys:
             self.y -= 5
 
         if(x >= 150 and y <= -180):
@@ -161,9 +161,9 @@ class Pessoa(mesa.Agent):
         x, y = self.shape.position()
         xs, ys = COORD_SAIDA
 
-        if(x < xs):
+        if x < xs:
             self.x += 5
-        if(y < ys):
+        if y < ys:
             self.y += 5
 
         if(x >= 160 and y >= 180):
@@ -176,9 +176,7 @@ class Pessoa(mesa.Agent):
         self.shape.goto(self.x, self.y)
 
     def mostra_status(self):
-        print(self.unique_id)
-        print(self.energia)
-        print(self.nome)
+        print(self.nome + " tem " + str(self.energia) + " sobrando")
 
 
 class BaladaModel(mesa.Model):
