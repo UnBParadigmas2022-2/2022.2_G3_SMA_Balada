@@ -26,6 +26,8 @@ screen = turtle.TurtleScreen(canvas)
 screen.register_shape('gifs/boneco_normal.gif')
 screen.register_shape('gifs/boneco_bebida.gif')
 screen.register_shape('gifs/boneco_cansado.gif')
+screen.register_shape('gifs/boneco_curtindo.gif')
+screen.register_shape('gifs/boneco_curtindo.gif')
 screen.bgpic('gifs/mapa.gif')
 
 # DESENHA A BOATE
@@ -55,10 +57,10 @@ class Pessoa(mesa.Agent):
         self.x = x
         self.y = y
         self.nome = nomes[unique_id]
-        self.energia = random.randint(200, 800)
+        self.energia = random.randint(200, 350)
         self.embriaguez = 0
         self.vontade = 0
-        self.centro = random.randint(0, 1)
+        self.centro = random.randint(0, 2)
         self.escondido = False
         self.bebida = False
         self.shape = turtle.RawTurtle(screen)
@@ -69,16 +71,26 @@ class Pessoa(mesa.Agent):
         self.shape.showturtle()
 
     def move(self):
-        if(self.centro == 1):
+        if(self.bebida == True):
+            self.embriaguez += 1
+        if(self.centro != 0):
             if(self.bebida == True):
                 self.backtocenter()
             else:
                 self.gotocenter()
         elif(self.energia == 0):
             self.gotosaida()
-        elif(distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False and self.vontade == 1):
+        elif(distance(self.shape.position(), COORD_BEBIDA) < 380 and self.bebida == False and self.vontade == 1):
             self.gotobebida()
         else:
+            if(distance(COOR_CENTER, self.shape.position()) < 150 and self.bebida == False):
+                self.shape.shape('gifs/boneco_curtindo.gif')
+            elif(self.embriaguez >= 80):
+                self.shape.shape('gifs/boneco_normal.gif')
+                self.bebida = False
+                self.embriaguez = 0
+            elif(self.energia <= 100 and self.bebida == False and self.embriaguez < 80):
+                self.shape.shape('gifs/boneco_normal.gif')
             if self.shape.xcor() >= 180:
                 self.x -= 5
             elif self.shape.ycor() >= 180:
@@ -94,8 +106,9 @@ class Pessoa(mesa.Agent):
             self.shape.goto(self.x, self.y)
 
             self.vontade = random.randint(1, 50)
-            print(self.vontade)
+
             self.energia -= 1
+            print(self.energia)
 
     def backtocenter(self):
         x, y = self.shape.position()
@@ -107,7 +120,6 @@ class Pessoa(mesa.Agent):
             self.y += 5
 
         if(x <= 0 and y >= 0):
-            print("chegou no centroo")
             self.centro = 0
 
         self.shape.goto(self.x, self.y)
@@ -117,14 +129,12 @@ class Pessoa(mesa.Agent):
         xs, ys = COOR_CENTER
 
         if(x < xs):
-            print("o x ta aumentando")
             self.x += 5
         if(y > ys):
-            print("o y ta diminuindo")
             self.y -= 5
 
         if(x >= 0 and y <= 0):
-            print("chegou no centroo")
+            self.shape.shape('gifs/boneco_curtindo.gif')
             self.centro = 0
 
         self.shape.goto(self.x, self.y)
@@ -139,11 +149,11 @@ class Pessoa(mesa.Agent):
             self.y -= 5
 
         if(x >= 150 and y <= -180):
-            self.energia += 20
+            self.energia += random.randint(1, 10)
             self.bebida = True
             self.shape.shape('gifs/boneco_bebida.gif')
             escreverLog(f'{self.nome} pegou uma bebida')
-            self.centro = random.randint(0, 1)
+            self.centro = random.randint(0, 3)
 
         self.shape.goto(self.x, self.y)
 
