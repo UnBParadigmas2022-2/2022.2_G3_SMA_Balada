@@ -65,7 +65,7 @@ class Pessoa(mesa.Agent):
     def move(self):
         if(self.energia == 0):
             self.gotosaida()
-        elif(turtle.distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False):
+        elif(distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False):
             self.gotobebida()
         else:
             if self.shape.xcor() >= 180:
@@ -129,6 +129,7 @@ class BaladaModel(mesa.Model):
         self.num_pessoas = N
         self.schedule = mesa.time.SimultaneousActivation(self)
         self.pessoas = []
+        self.id = 10
 
         for i in range(self.num_pessoas):
             p = Pessoa(i, self, -170, 180)
@@ -148,6 +149,16 @@ class BaladaModel(mesa.Model):
     def remover_pessoa(self):
         for i in self.pessoas:
             i.mostra_status()
+    
+    def adicionar_pessoa(self):
+        a = Pessoa(self.id,self,-170,180)
+        self.id += 1
+        self.pessoas.append(a)
+        self.schedule.add(a)
+        escreverLog(f'{a.nome} entrou na balada\n')
+
+    def next_agent_id(self):
+        return max([agent.unique_id for agent in self.schedule.agents]) + 1
 
 def escreverLog(mensagem):
     log = open("utils/log.txt", "a")
@@ -170,6 +181,9 @@ def Play():
 def funcao_placeholder():
     balada.remover_pessoa()
 
+def adicionar_pessoas():
+    balada.adicionar_pessoa()
+
 
 Play_Button = tkinter.Button(
     master=window, text="Iniciar balada", command=Play)
@@ -181,4 +195,8 @@ Board_Button = tkinter.Button(
 Board_Button.config(bg="cyan", fg="black")
 Board_Button.grid(padx=2, pady=2, row=1, column=11, sticky='nsew')
 
+Board_Button = tkinter.Button(
+    master=window, text="Adicionar pessoas", command=adicionar_pessoas)
+Board_Button.config(bg="cyan", fg="black")
+Board_Button.grid(padx=2, pady=2, row=2, column=11, sticky='nsew') 
 window.mainloop()
