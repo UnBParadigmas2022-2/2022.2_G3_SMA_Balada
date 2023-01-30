@@ -51,6 +51,7 @@ class Pessoa(mesa.Agent):
         super().__init__(unique_id, model)
         self.x = x
         self.y = y
+        self.escondido = False
         self.nome = nomes[unique_id]
         self.energia = random.randint(200,400)
         self.embriaguez = 0
@@ -65,7 +66,8 @@ class Pessoa(mesa.Agent):
     def move(self):
         if(self.energia == 0):
             self.gotosaida()
-        elif(distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False):    self.gotobebida()
+        elif(distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False):
+            self.gotobebida()
         else:
             if self.shape.xcor() >= 180:
                 self.x -= 5
@@ -99,6 +101,7 @@ class Pessoa(mesa.Agent):
             self.energia += 20
             self.bebida = True
             self.shape.shape('gifs/boneco_bebida.gif')
+            escreverLog(f'{self.nome} pegou uma bebida')
 
         self.shape.goto(self.x, self.y)
 
@@ -113,6 +116,9 @@ class Pessoa(mesa.Agent):
 
         if(x >= 160 and y >= 180):
             self.shape.hideturtle()
+            if(not self.escondido):
+                escreverLog(f'{self.nome} saiu da balada')
+                self.escondido = True
 
         self.shape.shape('gifs/boneco_cansado.gif')
         self.shape.goto(self.x, self.y)
@@ -134,7 +140,7 @@ class BaladaModel(mesa.Model):
             p = Pessoa(i, self, -170, 180)
             self.pessoas.append(p)
             self.schedule.add(p)
-            escreverLog(f'{p.nome} entrou na balada\n')
+            escreverLog(f'{p.nome} entrou na balada')
 
     def step(self):
         for pessoa in self.schedule.agents:
@@ -154,7 +160,6 @@ class BaladaModel(mesa.Model):
         self.id += 1
         self.pessoas.append(a)
         self.schedule.add(a)
-        escreverLog(f'{a.nome} entrou na balada\n')
 
     def next_agent_id(self):
         return max([agent.unique_id for agent in self.schedule.agents]) + 1
