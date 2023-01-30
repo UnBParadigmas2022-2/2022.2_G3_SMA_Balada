@@ -4,7 +4,7 @@ import random
 import time
 import tkinter
 import tkinter.messagebox
-from utils.calcula_disntacia import distance 
+from utils.calcula_disntacia import distance
 
 from utils.nomes import nomes
 from utils.desenha_mapa import desenha_entrada, desenha_saida, desenha_bar
@@ -16,6 +16,7 @@ RANGE = 5
 TAMANHO_BOATE = 200
 COORD_SAIDA = (160, 180)
 COORD_BEBIDA = (150, -180)
+COOR_CENTER = (0, 0)
 
 window = tkinter.Tk()
 
@@ -47,15 +48,18 @@ desenha_saida(TAMANHO_BOATE, screen)
 # desenha o bar
 desenha_bar(TAMANHO_BOATE, screen)
 
+
 class Pessoa(mesa.Agent):
     def __init__(self, unique_id, model, x, y):
         super().__init__(unique_id, model)
         self.x = x
         self.y = y
-        self.escondido = False
         self.nome = nomes[unique_id]
-        self.energia = random.randint(200,400)
+        self.energia = random.randint(200, 800)
         self.embriaguez = 0
+        self.vontade = 0
+        self.centro = random.randint(0, 1)
+        self.escondido = False
         self.bebida = False
         self.shape = turtle.RawTurtle(screen)
         self.shape.hideturtle()
@@ -65,9 +69,14 @@ class Pessoa(mesa.Agent):
         self.shape.showturtle()
 
     def move(self):
-        if(self.energia == 0):
+        if(self.centro == 1):
+            if(self.bebida == True):
+                self.backtocenter()
+            else:
+                self.gotocenter()
+        elif(self.energia == 0):
             self.gotosaida()
-        elif(distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False):
+        elif(distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False and self.vontade == 1):
             self.gotobebida()
         else:
             if self.shape.xcor() >= 180:
@@ -78,16 +87,47 @@ class Pessoa(mesa.Agent):
                 self.x += 5
             elif self.shape.ycor() <= -180:
                 self.y += 5
-
-            elif(self.shape.distance(self.shape) > 100):
-                self.x += random.randint(5, 10)
-                self.y += random.randint(-20, -10)
             else:
-                self.x += random.randint(-10, 10)
-                self.y += random.randint(-10, 10)
+                self.x += random.randint(-5, 5)
+                self.y += random.randint(-5, 5)
+
             self.shape.goto(self.x, self.y)
 
+            self.vontade = random.randint(1, 50)
+            print(self.vontade)
             self.energia -= 1
+
+    def backtocenter(self):
+        x, y = self.shape.position()
+        xs, ys = COOR_CENTER
+
+        if(x > xs):
+            self.x -= 5
+        if(y < ys):
+            self.y += 5
+
+        if(x <= 0 and y >= 0):
+            print("chegou no centroo")
+            self.centro = 0
+
+        self.shape.goto(self.x, self.y)
+
+    def gotocenter(self):
+        x, y = self.shape.position()
+        xs, ys = COOR_CENTER
+
+        if(x < xs):
+            print("o x ta aumentando")
+            self.x += 5
+        if(y > ys):
+            print("o y ta diminuindo")
+            self.y -= 5
+
+        if(x >= 0 and y <= 0):
+            print("chegou no centroo")
+            self.centro = 0
+
+        self.shape.goto(self.x, self.y)
 
     def gotobebida(self):
         x, y = self.shape.position()
@@ -103,6 +143,7 @@ class Pessoa(mesa.Agent):
             self.bebida = True
             self.shape.shape('gifs/boneco_bebida.gif')
             escreverLog(f'{self.nome} pegou uma bebida')
+            self.centro = random.randint(0, 1)
 
         self.shape.goto(self.x, self.y)
 
@@ -155,15 +196,16 @@ class BaladaModel(mesa.Model):
     def remover_pessoa(self):
         for i in self.pessoas:
             i.mostra_status()
-    
+
     def adicionar_pessoa(self):
-        a = Pessoa(self.id,self,-170,180)
+        a = Pessoa(self.id, self, -170, 180)
         self.id += 1
         self.pessoas.append(a)
         self.schedule.add(a)
 
     def next_agent_id(self):
         return max([agent.unique_id for agent in self.schedule.agents]) + 1
+
 
 def escreverLog(mensagem):
     log = open("utils/log.txt", "a")
@@ -186,6 +228,7 @@ def Play():
 def funcao_placeholder():
     balada.remover_pessoa()
 
+
 def adicionar_pessoas():
     balada.adicionar_pessoa()
 
@@ -203,5 +246,5 @@ Board_Button.grid(padx=2, pady=2, row=1, column=11, sticky='nsew')
 Board_Button = tkinter.Button(
     master=window, text="Adicionar pessoas", command=adicionar_pessoas)
 Board_Button.config(bg="cyan", fg="black")
-Board_Button.grid(padx=2, pady=2, row=2, column=11, sticky='nsew') 
+Board_Button.grid(padx=2, pady=2, row=2, column=11, sticky='nsew')
 window.mainloop()
