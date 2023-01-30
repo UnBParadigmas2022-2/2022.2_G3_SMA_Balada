@@ -5,6 +5,11 @@ import tkinter.messagebox
 
 from utils.calcula_disntacia import distance
 from utils.nomes import nomes
+from pygame import mixer
+
+
+mixer.init()
+mixer.music.load('Saveiro_pega_no_BREU.mp3')
 
 
 ID = 4
@@ -205,6 +210,7 @@ balada = BaladaModel(10)
 
 
 def Play():
+    mixer.music.play()
     while FLAG:
         balada.step()
 
