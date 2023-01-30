@@ -25,6 +25,7 @@ screen = turtle.TurtleScreen(canvas)
 screen.register_shape('gifs/boneco_normal.gif')
 screen.register_shape('gifs/boneco_bebida.gif')
 screen.register_shape('gifs/boneco_cansado.gif')
+screen.bgpic('gifs/mapa.gif')
 
 # DESENHA A BOATE
 boate_drawing = turtle.RawTurtle(screen)
