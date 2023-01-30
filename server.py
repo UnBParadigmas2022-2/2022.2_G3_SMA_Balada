@@ -4,6 +4,7 @@ import random
 import time
 import tkinter
 import tkinter.messagebox
+from utils.calcula_disntacia import distance 
 
 from utils.nomes import nomes
 from utils.desenha_mapa import desenha_entrada, desenha_saida, desenha_bar
@@ -20,10 +21,13 @@ window = tkinter.Tk()
 
 canvas = tkinter.Canvas(master=window, width=800, height=800)
 canvas.grid(padx=2, pady=2, row=0, column=0, rowspan=10, columnspan=10)
-
+screen = turtle.TurtleScreen(canvas)
+screen.register_shape('gifs/boneco_normal.gif')
+screen.register_shape('gifs/boneco_bebida.gif')
+screen.register_shape('gifs/boneco_cansado.gif')
 
 # DESENHA A BOATE
-boate_drawing = turtle.RawTurtle(canvas)
+boate_drawing = turtle.RawTurtle(screen)
 boate_drawing.penup()
 boate_drawing.goto(TAMANHO_BOATE * -1, TAMANHO_BOATE * -1)
 boate_drawing.pendown()
@@ -34,14 +38,13 @@ for _ in range(4):
     boate_drawing.left(90)
 
 # desenha a porta de entrada
-desenha_entrada(TAMANHO_BOATE, canvas)
+desenha_entrada(TAMANHO_BOATE, screen)
 
 # desenha a porta de saida
-desenha_saida(TAMANHO_BOATE, canvas)
+desenha_saida(TAMANHO_BOATE, screen)
 
 # desenha o bar
-desenha_bar(TAMANHO_BOATE, canvas)
-
+desenha_bar(TAMANHO_BOATE, screen)
 
 class Pessoa(mesa.Agent):
     def __init__(self, unique_id, model, x, y):
@@ -49,19 +52,21 @@ class Pessoa(mesa.Agent):
         self.x = x
         self.y = y
         self.nome = nomes[unique_id]
-        self.energia = 50
+        self.energia = random.randint(200,400)
         self.embriaguez = 0
-        self.shape = turtle.RawTurtle(canvas)
+        self.bebida = False
+        self.shape = turtle.RawTurtle(screen)
         self.shape.hideturtle()
-        self.shape.shape("circle")
+        self.shape.shape('gifs/boneco_normal.gif')
         self.shape.penup()
-        self.shape.color("blue")
         self.shape.setposition(self.x, self.y)
         self.shape.showturtle()
 
     def move(self):
         if(self.energia == 0):
-            self.gotocoordinate()
+            self.gotosaida()
+        elif(turtle.distance(self.shape.position(), COORD_BEBIDA) < 320 and self.bebida == False):
+            self.gotobebida()
         else:
             if self.shape.xcor() >= 180:
                 self.x -= 5
@@ -82,7 +87,23 @@ class Pessoa(mesa.Agent):
 
             self.energia -= 1
 
-    def gotocoordinate(self):
+    def gotobebida(self):
+        x, y = self.shape.position()
+        xs, ys = COORD_BEBIDA
+
+        if(x < xs):
+            self.x += 5
+        if(y > ys):
+            self.y -= 5
+
+        if(x >= 150 and y <= -180):
+            self.energia += 20
+            self.bebida = True
+            self.shape.shape('gif/boneco_bebida.gif')
+
+        self.shape.goto(self.x, self.y)
+
+    def gotosaida(self):
         x, y = self.shape.position()
         xs, ys = COORD_SAIDA
 
@@ -94,6 +115,7 @@ class Pessoa(mesa.Agent):
         if(x >= 160 and y >= 180):
             self.shape.hideturtle()
 
+        self.shape.shape('gifs/boneco_cansado.gif')
         self.shape.goto(self.x, self.y)
 
     def mostra_status(self):
