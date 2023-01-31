@@ -30,7 +30,7 @@ Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcioname
 
 ## Instalação 
 **Linguagens**: Python<br>
-**Tecnologias**: mesa, turtle, tkinker<br>
+**Tecnologias**: mesa<br>
 Após clonar o repositório, instale o requerimentos com seguinte comando no terminal:
 ```
 pip install requirements.txt
@@ -46,6 +46,7 @@ O passo a passo para rodar o projeto é:
 5. Também é possível obter o histórico do comportamento da simulação no arquivo utils/log.txt 
 ```
 
+```
 ## Vídeo
 Adicione 1 ou mais vídeos com a execução do projeto.
 Procure: 
@@ -59,14 +60,14 @@ TEMPO: +/- 15min
 ## Participações
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) |
 | -- | -- | -- |
-| Eduarda Servídio  |  |  |
-| Gustave Augusto Persijn  | |  |
-| Gustavo Afonso Pires  || |
-| Lorrany Oliveira  |  |  |
-| Lorrayne Alves  |  | |
-| Pedro Henrique Carvalho  |  ||
-| Sávio Cunha de Carvalho  | | |
-| Ugor Marcilio Brandão  | |  |
+| Eduarda Servídio  | Criação do log com nome dos agentes e seus comportamentos; criação da interface e adição de gifs no frontend. | Excelente |
+| Gustave Augusto Persijn  | Implementação do comportamento do agente, funções gotobebida, gotosaida, gotocenter, backtocenter. | Excelente |
+| Gustavo Afonso Pires  | Desacoplamento do mesa core e da interface gráfica nativa do mesa, integração gráfica do tkinter com o turtle, suporte com o código dos colegas, refatoração do código.| Execelente |
+| Lorrany Oliveira  |  Desacoplamento do mesa core e da interface gráfica nativa do mesa, integração gráfica do tkinter com o turtle, refatoração do código. | Excelente |
+| Lorrayne Alves  | Criação do log com nome dos agentes e seus comportamentos; criação da interface e adição de gifs no frontend. | Excelente |
+| Pedro Henrique Carvalho  | implementação do comportamento do agente, construção da Balada Model, Implementação do painel e botões.  | Excelente |
+| Sávio Cunha de Carvalho  | Implementação do comportamento do agente, funções gotobebida, gotosaida, gotocenter. | Excelente |
+| Ugor Marcilio Brandão  | implementação do comportamento do agente, construção da Balada Model, Implementação do painel e botões. | Excelente  |
 
 ## Outros 
 Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não esqueça, entretanto, de informar sobre:
