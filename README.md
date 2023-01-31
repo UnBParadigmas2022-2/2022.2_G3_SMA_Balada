@@ -69,8 +69,7 @@ TEMPO: +/- 15min
 | Ugor Marcilio Brandão  | implementação do comportamento do agente, construção da Balada Model, Implementação do painel e botões. | Excelente  |
 
 ## Outros 
-Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não esqueça, entretanto, de informar sobre:
-(i) Lições Aprendidas
+### Lições Aprendidas
 |Nome do Membro | Lições Aprendidas | 
 | -------- | -- | 
 | Eduarda Servídio  |  com a realização do projeto foi possível entender o funcionamento dos sistemas multiagentes e seus comportamentos. Além de como personalizar a aplicação para construção da interface no nosso projeto. Foi de grande valia as tentativas para realizar esse trabalho.|  
@@ -81,20 +80,19 @@ Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não es
 | Pedro Henrique Carvalho  | O aprendizado com sistema Multiagentes foi satisfatório. Foi possível aprender como modelar comportamentos para o Agente, como integrar diferentes bibliotecas para uma interação completa dentro do escopo definido. |
 | Sávio Cunha de Carvalho  |Consegui entender o Paradigma de Sistemas Multiagente de forma prática. Gostei do paradigma e da sua aplicação no projeto, evidenciando vários comportamentos dos agentes. | 
 | Ugor Marcilio Brandão  | A Programação Multiagente foi bastante interessante. A gente vai aprendendo a programar sempre com comportamentos de causa e efeito e pensar multiagente é pensar que ao modelar um ambiente os agente envolvidos podem ter decisões diferentes aos estímulos (até mesmo não reagir) e ter um comportamento mesmo que não esteja interagindo. Enfim, o projeto foi divertido e deu pra perceber que dá pra ir bem mais longe.|  
-<br>
-(ii) Percepções;
+### Percepções;
 |Nome do Membro | Percepções | 
 | -- | -- | 
 | Eduarda Servídio  |  Não é tão trivial mexer com sistemas multiagentes, não estamos acostumados com esse tipo de programação, foge da convencional. E como decidimos utilizar o mesa, sentimos um pouco de dificuldade em estabelecer as funções de comportamento, precisamos até mesmo mudar a temática do trabalho para conseguir entregar algo.|  
 | Gustave Augusto Persijn  | Achei extremamente interessante o sistema de multiagentes, mas confesso que no início foi difícil entender a lógica que se passava na interação entre eles, mas no final entendi melhor a lógica por trás disso. |  
-| Gustavo Afonso Pires  | :Acho que o paradigma é muito interessante, certamente é base para muitas tecnologias acopladas em linguagens de uso corriqueiro, apenas senti falta de maior desacoplamento nas bibliotecas do Mesa.| 
+| Gustavo Afonso Pires  | Acho que o paradigma é muito interessante, certamente é base para muitas tecnologias acopladas em linguagens de uso corriqueiro, apenas senti falta de maior desacoplamento nas bibliotecas do Mesa.| 
 | Lorrany Oliveira  |  Achei o paradigma interessante, mas achei complicado de entender a lógica dele inicialmente.|  
 | Lorrayne Alves  | O paradigma SMA trouxe uma visão diferente da programação convencional, o que não foi uma tarefa fácil devido às nossas limitações de conhecimento sobre o mesa. | 
 | Pedro Henrique Carvalho  | O paradigma de Sistemas Multiagentes trouxe uma visão diferente, mostrando que pode ser útil ou ideal para diferentes tipos de aplicação. Também foi possível perceber que o Mesa abstrai muito do que pode ser feito com Sistemas MultiAgentes, e mesmo que facilite o uso para alguns objetivos, possui fragilidades. |
 | Sávio Cunha de Carvalho  |osso projeto evidenciou bem o uso do paradigma de Sistemas Multiagentes e entendeu como funciona o mesa e suas limitações, possibilitando a criação da nossa balada. | 
 | Ugor Marcilio Brandão  | A biblioteca do Mesa facilita algumas coisas mas deixa a programação engessada. A gente tinha bastante vontade de produzir um front end bonito e foi trabalhoso de fazer. O mais importante na minha visão foi a modelagem do comportamento do agente.|  
-<br>
-(iii) Fragilidades
+
+### Fragilidades
 |Nome do Membro | Fragilidades | 
 | -- | -- | 
 | Eduarda Servídio  |  |  
@@ -105,8 +103,8 @@ Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não es
 | Pedro Henrique Carvalho  | Os agentes poderiam ter outros comportamentos (alguns foram traçados, mas não implementados). |
 | Sávio Cunha de Carvalho  |osso projeto evidenciou bem o uso do paradigma de Sistemas Multiagentes e entendeu como funciona o mesa e suas limitações, possibilitando a criação da nossa balada. | 
 | Ugor Marcilio Brandão  | O movimento aleatório dos agentes ainda faz com que eles fiquem mais em uma determinada área. A interface poderia ser maior. Os agentes poderiam ser deletados e realmente apagados da memória. | 
-<br>
-(iV) Trabalhos Futuros.
+
+### Trabalhos Futuros.
 |Nome do Membro | Ideias para trabalhos futuros | 
 | -- | -- | 
 | Eduarda Servídio  | Criação de mais comportamentos para os agentes da balada, quanto mais comportamentos mais interessante e mais próximo da situação real vai ficando a aplicação. |  
