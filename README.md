@@ -26,18 +26,19 @@ O projeto é voltado para a prática da programação de multiagentes. O tema co
 * Movimento para saída da balada
 
 ## Screenshots
-1. Tela inicial <br>
+### Tela inicial <br>
 ![image](img/tela_inicial.jpeg)
 
-2. Tela após iniciado <br>
+### Tela após iniciado <br>
 ![image](img/tela_apos_iniciado.jpeg)
 
-3. Funcionamento <br>
-
+### Funcionamento <br>
+#### Iniciando a simulação
 <p align ="center">
 <img width = "460" height "300" src ="gifs/funcionamento_desdeinicio.gif"
 </p>
 
+### Simulação em funcionamento
 <p align ="center">
 <img width = "460" height "300" src ="gifs/funcionamento.gif"
 </p>
@@ -48,7 +49,7 @@ O projeto é voltado para a prática da programação de multiagentes. O tema co
 **Tecnologias**: mesa, tkinker, Turtle, Pygame<br>
 Após clonar o repositório, instale o requerimentos com seguinte comando no terminal:
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Uso 
