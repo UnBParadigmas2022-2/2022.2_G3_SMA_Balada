@@ -112,7 +112,6 @@ TEMPO: +/- 15min
 | Gustavo Afonso Pires  |  Acredito que o stack de bibliotecas e o desacoplamento usado para a interface visual pode vir a ser útil para projetos futuros que não queriam usar a interface genérica do Mesa.| 
 | Lorrany Oliveira  |  |  
 | Lorrayne Alves  |Criação de novos comportamentos para os agentes.
-Pedro: Alguns comportamentos dos agentes foram traçados, mas não foram implementados. Os agentes poderiam ter outros comportamentos individuais ou coletivos. | 
 | Pedro Henrique Carvalho  | Os agentes poderiam ter outros comportamentos (alguns foram traçados, mas não implementados). |
 | Sávio Cunha de Carvalho  |Adição de novos comportamentos para os agentes. | 
 | Ugor Marcilio Brandão  | O projeto conta com alguns gifs não utilizados como flerte, briga e passando mal que não foram implementados como comportamentos. Poderia acrescentar um botão de troca de música e com essa troca o comportamento dos agentes também mudariam. Movimento aleatório dos agentes mais fluidos no mapa.  | 
