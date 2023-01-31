@@ -29,7 +29,10 @@ O projeto é voltado para a prática da programação de multiagentes. O tema co
 1. Tela inicial <br>
 ![image](img/tela_inicial.jpeg)
 
-2. Funcionamento <br>
+2. Tela após iniciado <br>
+![image](img/tela_apos_iniciado.jpeg)
+
+3. Funcionamento <br>
 <p align ="center">
 <img width = "460" height "300" src ="gifs/funcionamento.gif"
 </p>
