@@ -56,7 +56,7 @@ O passo a passo para rodar o projeto é:
 ```
 
 ## Vídeo
-[Vídeo de apresentação]()
+[Vídeo de apresentação](https://youtu.be/GFOFCah5pzE)
 
 ## Participações
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) |
