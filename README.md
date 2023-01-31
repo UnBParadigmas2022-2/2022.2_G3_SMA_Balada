@@ -46,7 +46,6 @@ O passo a passo para rodar o projeto é:
 5. Também é possível obter o histórico do comportamento da simulação no arquivo utils/log.txt 
 ```
 
-```
 ## Vídeo
 Adicione 1 ou mais vídeos com a execução do projeto.
 Procure: 
@@ -73,7 +72,7 @@ TEMPO: +/- 15min
 Quaisquer outras informações sobre o projeto podem ser descritas aqui. Não esqueça, entretanto, de informar sobre:
 (i) Lições Aprendidas
 |Nome do Membro | Lições Aprendidas | 
-| -- | -- | 
+| -------- | -- | 
 | Eduarda Servídio  |  com a realização do projeto foi possível entender o funcionamento dos sistemas multiagentes e seus comportamentos. Além de como personalizar a aplicação para construção da interface no nosso projeto. Foi de grande valia as tentativas para realizar esse trabalho.|  
 | Gustave Augusto Persijn  | Aprendi muito sobre sistemas multiagentes através da aplicação prática da proposta do nosso projeto, em que pude pesquisar e estudar mais sobre como funciona o Mesa, além de entender mais sobre os atributos e comportamentos que vão compor cada agente, além das interações entre eles. |  
 | Gustavo Afonso Pires  | É muito importante conhecer bem a plataforma de código, no caso do Mesa apesar de algumas facilitações da ferramenta, foi muito difícil personalizar alguns aspectos.| 
