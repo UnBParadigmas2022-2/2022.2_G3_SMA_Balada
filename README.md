@@ -26,15 +26,24 @@ Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcioname
 ## Instalação 
 **Linguagens**: Python<br>
 **Tecnologias**: mesa<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
-Gifs animados e outras ilustrações são bem-vindos!
+**Pré-requisito**: instalação do python e do framework mesa<br>
+```
+Para instalar o programa:
+    
+    1. Para rodar o projeto é necessário baixar o Python e o mesa;
+    2. Clone o projeto.
+
+```
 
 ## Uso 
-Explique como usar seu projeto.
-Procure ilustrar em passos, com apoio de telas do software, seja com base na interface gráfica, seja com base no terminal.
-Nessa seção, deve-se revelar de forma clara sobre o funcionamento do software.
 
+```
+1. Abra a pasta do projeto
+2. rode no terminal o comando: python3 server.py;
+3. Clique no botão "Iniciar balada";
+4. Caso queira adicionar mais pessoas, selecione o botão "Adicionar pessoas";
+
+```
 ## Vídeo
 Adicione 1 ou mais vídeos com a execução do projeto.
 Procure: 
