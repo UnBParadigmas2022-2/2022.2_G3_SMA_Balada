@@ -38,7 +38,7 @@ O projeto é voltado para a prática da programação de multiagentes. O tema co
 <img width = "460" height "300" src ="gifs/funcionamento_desdeinicio.gif"
 </p>
 
-### Simulação em funcionamento
+#### Simulação em funcionamento
 <p align ="center">
 <img width = "460" height "300" src ="gifs/funcionamento.gif"
 </p>
