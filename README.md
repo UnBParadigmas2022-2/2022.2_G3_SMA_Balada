@@ -26,7 +26,13 @@ O projeto é voltado para a prática da programação de multiagentes. O tema co
 * Movimento para saída da balada
 
 ## Screenshots
-Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
+1. Tela inicial <br>
+![image](img/tela_inicial.jpeg)
+
+2. Funcionamento <br>
+<p align ="center">
+<img width = "460" height "300" src ="gifs/funcionamento.gif"
+</p>
 
 ## Instalação 
 **Linguagens**: Python<br>
@@ -47,14 +53,7 @@ O passo a passo para rodar o projeto é:
 ```
 
 ## Vídeo
-Adicione 1 ou mais vídeos com a execução do projeto.
-Procure: 
-(i) Introduzir o projeto;
-(ii) Mostrar passo a passo o código, explicando-o, e deixando claro o que é de terceiros, e o que é contribuição real da equipe;
-(iii) Apresentar particularidades do Paradigma, da Linguagem, e das Tecnologias, e
-(iV) Apresentar lições aprendidas, contribuições, pendências, e ideias para trabalhos futuros.
-OBS: TODOS DEVEM PARTICIPAR, CONFERINDO PONTOS DE VISTA.
-TEMPO: +/- 15min
+[Vídeo de apresentação]()
 
 ## Participações
 |Nome do Membro | Contribuição | Significância da Contribuição para o Projeto (Excelente/Boa/Regular/Ruim/Nula) |
