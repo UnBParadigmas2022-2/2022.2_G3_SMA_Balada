@@ -97,7 +97,7 @@ O passo a passo para rodar o projeto é:
 ### Fragilidades
 |Nome do Membro | Fragilidades | 
 | -- | -- | 
-| Eduarda Servídio  |  |  
+| Eduarda Servídio  | A interface poderia ser maior para se ter uma melhor movimentação dos agentes. Além dos agentes possuírem comportamentos limitados. |  
 | Gustave Augusto Persijn  |  |  
 | Gustavo Afonso Pires  |  O projeto tem alguns bugs e problemas de desempenho, talvez algoritmos mais eficientes podem ajudar com os problemas de desempenho.| 
 | Lorrany Oliveira  |  |  
