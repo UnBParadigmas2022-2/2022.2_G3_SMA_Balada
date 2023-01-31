@@ -115,7 +115,8 @@ TEMPO: +/- 15min
 | Pedro Henrique Carvalho  | Os agentes poderiam ter outros comportamentos (alguns foram traçados, mas não implementados). |
 | Sávio Cunha de Carvalho  |Adição de novos comportamentos para os agentes. | 
 | Ugor Marcilio Brandão  | O projeto conta com alguns gifs não utilizados como flerte, briga e passando mal que não foram implementados como comportamentos. Poderia acrescentar um botão de troca de música e com essa troca o comportamento dos agentes também mudariam. Movimento aleatório dos agentes mais fluidos no mapa.  | 
-<br>
+
+
 ## Fontes
 * tkinker: <https://docs.python.org/3/library/tkinter.html>
 * mesa: <https://mesa.readthedocs.io/en/latest/tutorials/intro_tutorial.html>
