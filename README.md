@@ -33,9 +33,15 @@ O projeto é voltado para a prática da programação de multiagentes. O tema co
 ![image](img/tela_apos_iniciado.jpeg)
 
 3. Funcionamento <br>
+
+<p align ="center">
+<img width = "460" height "300" src ="gifs/funcionamento_desdeinicio.gif"
+</p>
+
 <p align ="center">
 <img width = "460" height "300" src ="gifs/funcionamento.gif"
 </p>
+
 
 ## Instalação 
 **Linguagens**: Python<br>
@@ -112,7 +118,7 @@ O passo a passo para rodar o projeto é:
 | Eduarda Servídio  | Criação de mais comportamentos para os agentes da balada, quanto mais comportamentos mais interessante e mais próximo da situação real vai ficando a aplicação. |  
 | Gustave Augusto Persijn  |  |  
 | Gustavo Afonso Pires  |  Acredito que o stack de bibliotecas e o desacoplamento usado para a interface visual pode vir a ser útil para projetos futuros que não queriam usar a interface genérica do Mesa.| 
-| Lorrany Oliveira  |  |  
+| Lorrany Oliveira  | Criação de novos comportamentos |  
 | Lorrayne Alves  |Criação de novos comportamentos para os agentes.
 | Pedro Henrique Carvalho  | Os agentes poderiam ter outros comportamentos (alguns foram traçados, mas não implementados). |
 | Sávio Cunha de Carvalho  |Adição de novos comportamentos para os agentes. | 
