@@ -30,7 +30,7 @@ Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcioname
 
 ## Instalação 
 **Linguagens**: Python<br>
-**Tecnologias**: mesa<br>
+**Tecnologias**: mesa, tkinker, Turtle, Pygame<br>
 Após clonar o repositório, instale o requerimentos com seguinte comando no terminal:
 ```
 pip install requirements.txt
@@ -39,7 +39,7 @@ pip install requirements.txt
 ## Uso 
 O passo a passo para rodar o projeto é:
 ```
-1. No diretório do projeto digite a python server.py no terminal e espero a interface carregar por completa ( quando os botôes aparecerem).
+1. No diretório do projeto digite comando python server.py no terminal e espere a interface carregar por completa ( quando os botôes aparecerem).
 2. Aperte o botão "Iniciar balada" e divirta-se com a simulação da balada.
 3. Lembre que também é possível adicionar mais participantes a simulação pressionando o botão "Adicionar Pessoas"
 4. Caso queira saber o comportamento do agente em números, aperte "Check todo mundo" e observe o terminal.
